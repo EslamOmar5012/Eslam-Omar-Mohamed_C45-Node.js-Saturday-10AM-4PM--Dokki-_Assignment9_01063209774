@@ -74,7 +74,7 @@ export const replaceNote = async (req, res, next) => {
       _id: noteId,
       userId,
     },
-    { title, content },
+    { title, content, userId },
     { new: true },
   );
 

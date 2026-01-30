@@ -7,7 +7,7 @@ const notesSchema = new mongoose.Schema(
       required: [true, "title is required"],
       validate: {
         validator: function (value) {
-          return /[a-z]/.test(value);
+          return value !== value.toUpperCase();
         },
 
         message: (prop) =>
