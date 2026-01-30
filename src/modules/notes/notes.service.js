@@ -6,6 +6,7 @@ import {
   successRes,
 } from "../../common/index.js";
 import { NoteModel } from "../../db/index.js";
+import mongoose from "mongoose";
 
 //createNote
 export const createNote = async (req, res, next) => {
@@ -62,8 +63,6 @@ export const replaceNote = async (req, res, next) => {
 
   //get data from body
   const { title, content } = req.body;
-
-  console.log(userId);
 
   //check that all params are there
   await checkRequestBody(["title", title], ["content", content]);
@@ -216,11 +215,29 @@ export const aggregate = async (req, res, next) => {
   //get title fron query params
   const { title } = req.query;
 
-  //get notes
-  const notes = await NoteModel.find({ title }).populate({
-    path: "userData",
-    select: "name email -_id",
-  });
+  //get notes using aggregation
+  const notes = await NoteModel.aggregate([
+    { $match: { title, userId: new mongoose.Types.ObjectId(userId) } },
+    {
+      $lookup: {
+        from: "Assgnmint-9_Users",
+        localField: "userId",
+        foreignField: "_id",
+        as: "userData",
+      },
+    },
+    { $unwind: { path: "$userData", preserveNullAndEmptyArrays: true } },
+    {
+      $project: {
+        title: 1,
+        content: 1,
+        userId: 1,
+        createdAt: 1,
+        updatedAt: 1,
+        userData: { name: "$userData.name", email: "$userData.email" },
+      },
+    },
+  ]);
 
   if (!notes.length) throw new ApiError("notes not found", 404);
 

@@ -7,7 +7,7 @@ const notesSchema = new mongoose.Schema(
       required: [true, "title is required"],
       validate: {
         validator: function (value) {
-          return value !== value.toUpperCase();
+          return value !== value.toUpperCase() || !/[A-Za-z]/.test(value);
         },
 
         message: (prop) =>
@@ -34,12 +34,12 @@ const notesSchema = new mongoose.Schema(
   },
 );
 
-//create users virtual field
-notesSchema.virtual("userData", {
-  ref: "User",
-  localField: "userId",
-  foreignField: "_id",
-});
+// //create users virtual field
+// notesSchema.virtual("userData", {
+//   ref: "User",
+//   localField: "userId",
+//   foreignField: "_id",
+// });
 
 const NoteModel = mongoose.models.Note || mongoose.model("Note", notesSchema);
 

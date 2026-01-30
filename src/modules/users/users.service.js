@@ -14,8 +14,6 @@ import {
 export const signupUser = async (req, res, next) => {
   const { name, email, password, phone, age } = req.body;
 
-  console.log(UserModel);
-
   try {
     //check if email exist or not
     await checkIfUserExist(email);
@@ -114,8 +112,6 @@ export const editUser = async (req, res, next) => {
 export const deleteUser = async (req, res, next) => {
   //get userId
   const userId = getToken(req);
-
-  console.log(userId);
 
   //delete user
   const result = await UserModel.findOneAndDelete({ _id: userId });
