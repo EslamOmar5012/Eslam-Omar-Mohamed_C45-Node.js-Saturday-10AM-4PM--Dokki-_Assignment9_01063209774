@@ -1,0 +1,4066 @@
+{
+	"info": {
+		"_postman_id": "b6c1e110-bad4-4f90-b27e-7b97097bf3fa",
+		"name": "Assginment-9",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "36639501"
+	},
+	"item": [
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "signup",
+					"request": {
+						"auth": {
+							"type": "jwt",
+							"jwt": [
+								{
+									"key": "addTokenTo",
+									"value": "header",
+									"type": "string"
+								},
+								{
+									"key": "algorithm",
+									"value": "HS256",
+									"type": "string"
+								},
+								{
+									"key": "isSecretBase64Encoded",
+									"value": false,
+									"type": "boolean"
+								},
+								{
+									"key": "payload",
+									"value": "{}",
+									"type": "string"
+								},
+								{
+									"key": "headerPrefix",
+									"value": "Bearer",
+									"type": "string"
+								},
+								{
+									"key": "queryParamKey",
+									"value": "token",
+									"type": "string"
+								},
+								{
+									"key": "header",
+									"value": "{}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"eslam omar\",\n    \"email\": \"eslam@gmail.com\",\n    \"password\": \"10102001\",\n    \"phone\": \"01063209774\",\n    \"age\": 25\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:3000/users/signup",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3000",
+							"path": [
+								"users",
+								"signup"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "fail(missing data)",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"eslam omar\"\n    \n\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://127.0.0.1:3000/users/signup",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "3000",
+									"path": [
+										"users",
+										"signup"
+									]
+								}
+							},
+							"status": "Conflict",
+							"code": 409,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"description": "",
+									"type": "text"
+								},
+								{
+									"key": "Content-Length",
+									"value": "534"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"216-6KJBJ0ackxWLw7ldt1Fdt54kjWI\""
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 30 Jan 2026 03:08:01 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"error\",\n    \"message\": \"User validation failed: email: E-mail is required, password: Password is required, phone: phoneNumebr is required, age: age is required\",\n    \"stack\": \"Error: User validation failed: email: E-mail is required, password: Password is required, phone: phoneNumebr is required, age: age is required\\n    at signupUser (file:///media/eslam-omar/Eslam/Workspace/Training/Route/Assginment-9/src/modules/users/users.service.js:21:11)\\n    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)\"\n}"
+						},
+						{
+							"name": "fail (email exists)",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"eslam omar\",\n    \"email\": \"eslam@gmail.com\",\n    \"password\": \"10102001\",\n    \"phone\": \"01063209774\",\n    \"age\": 25\n    \n\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://127.0.0.1:3000/users/signup",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "3000",
+									"path": [
+										"users",
+										"signup"
+									]
+								}
+							},
+							"status": "Conflict",
+							"code": 409,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"description": "",
+									"type": "text"
+								},
+								{
+									"key": "Content-Length",
+									"value": "304"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"130-q/rFDo475krBICaUE9E0q0Vj/OE\""
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 30 Jan 2026 03:09:33 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"error\",\n    \"message\": \"Email already exists\",\n    \"stack\": \"Error: Email already exists\\n    at signupUser (file:///media/eslam-omar/Eslam/Workspace/Training/Route/Assginment-9/src/modules/users/users.service.js:21:11)\\n    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)\"\n}"
+						},
+						{
+							"name": "fail (format isn't right)",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"eslam omar\",\n    \"email\": \"eslam@gmail\",\n    \"password\": \"10102001\",\n    \"phone\": \"01063209774\",\n    \"age\": 25\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://127.0.0.1:3000/users/signup",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "3000",
+									"path": [
+										"users",
+										"signup"
+									]
+								}
+							},
+							"status": "Conflict",
+							"code": 409,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"description": "",
+									"type": "text"
+								},
+								{
+									"key": "Content-Length",
+									"value": "386"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"182-0znB+/DlxqdF6WR6crbO6RlSA/s\""
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 30 Jan 2026 03:11:00 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"error\",\n    \"message\": \"User validation failed: email: E-mail must be in right format\",\n    \"stack\": \"Error: User validation failed: email: E-mail must be in right format\\n    at signupUser (file:///media/eslam-omar/Eslam/Workspace/Training/Route/Assginment-9/src/modules/users/users.service.js:21:11)\\n    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)\"\n}"
+						},
+						{
+							"name": "fail (age format is wrong)",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"eslam omar\",\n    \"email\": \"eslam12@gmail.com\",\n    \"password\": \"10102001\",\n    \"phone\": \"01063209774\",\n    \"age\": 17\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://127.0.0.1:3000/users/signup",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "3000",
+									"path": [
+										"users",
+										"signup"
+									]
+								}
+							},
+							"status": "Conflict",
+							"code": 409,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"description": "",
+									"type": "text"
+								},
+								{
+									"key": "Content-Length",
+									"value": "434"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"1b2-arTUoIAY+jHrtclRXGHj2syiI34\""
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 30 Jan 2026 03:12:30 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"error\",\n    \"message\": \"User validation failed: age: Path `age` (17) is less than minimum allowed value (18).\",\n    \"stack\": \"Error: User validation failed: age: Path `age` (17) is less than minimum allowed value (18).\\n    at signupUser (file:///media/eslam-omar/Eslam/Workspace/Training/Route/Assginment-9/src/modules/users/users.service.js:21:11)\\n    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)\"\n}"
+						},
+						{
+							"name": "success",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"eslam omar\",\n    \"email\": \"eslam@gmail.com\",\n    \"password\": \"10102001\",\n    \"phone\": \"01063209774\",\n    \"age\": 25\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://127.0.0.1:3000/users/signup",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "3000",
+									"path": [
+										"users",
+										"signup"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": null,
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "421"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"1a5-XtBLS04KdDVeV/POZjNbGIa20vA\""
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 30 Jan 2026 05:22:30 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"success\",\n    \"message\": \"User has been created successfully\",\n    \"data\": [\n        {\n            \"name\": \"eslam omar\",\n            \"email\": \"eslam@gmail.com\",\n            \"password\": \"$2b$08$6pZ6GPLCxWliBldeMmETtOHeOgWYycko2opoM7LG1G3e1I4y2dEt6\",\n            \"phone\": \"ff71f0876b4e931500f59941b5b22431:55ab29d88709ba28aa86e99d4946e73d\",\n            \"age\": 25,\n            \"_id\": \"697c40161ed7837281f5d9c1\",\n            \"createdAt\": \"2026-01-30T05:22:30.190Z\",\n            \"updatedAt\": \"2026-01-30T05:22:30.190Z\",\n            \"__enc_phone\": true,\n            \"__v\": 0\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "logIn",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"eslam1234@gmail.com\",\n    \"password\": \"10102001\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:3000/users/login",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3000",
+							"path": [
+								"users",
+								"login"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "fail (email is missing)",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"password\": 10102001\n\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://127.0.0.1:3000/users/login",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "3000",
+									"path": [
+										"users",
+										"login"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"description": "",
+									"type": "text"
+								},
+								{
+									"key": "Content-Length",
+									"value": "1334"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"536-Fz344gqcdRPvVVH7YSDzfASFJ8c\""
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 30 Jan 2026 05:28:11 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"error\",\n    \"message\": \"property is missing email\",\n    \"stack\": \"Error: property is missing email\\n    at checkRequestBody (file:///media/eslam-omar/Eslam/Workspace/Training/Route/Assginment-9/src/common/utils/checkRequestBody.utils.js:5:23)\\n    at loginUser (file:///media/eslam-omar/Eslam/Workspace/Training/Route/Assginment-9/src/modules/users/users.service.js:42:9)\\n    at Layer.handleRequest (/media/eslam-omar/Eslam/Workspace/Training/Route/Assginment-9/node_modules/router/lib/layer.js:152:17)\\n    at next (/media/eslam-omar/Eslam/Workspace/Training/Route/Assginment-9/node_modules/router/lib/route.js:157:13)\\n    at Route.dispatch (/media/eslam-omar/Eslam/Workspace/Training/Route/Assginment-9/node_modules/router/lib/route.js:117:3)\\n    at handle (/media/eslam-omar/Eslam/Workspace/Training/Route/Assginment-9/node_modules/router/index.js:435:11)\\n    at Layer.handleRequest (/media/eslam-omar/Eslam/Workspace/Training/Route/Assginment-9/node_modules/router/lib/layer.js:152:17)\\n    at /media/eslam-omar/Eslam/Workspace/Training/Route/Assginment-9/node_modules/router/index.js:295:15\\n    at processParams (/media/eslam-omar/Eslam/Workspace/Training/Route/Assginment-9/node_modules/router/index.js:582:12)\\n    at next (/media/eslam-omar/Eslam/Workspace/Training/Route/Assginment-9/node_modules/router/index.js:291:5)\"\n}"
+						},
+						{
+							"name": "fail (password is missing)",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"email\": \"eslam12@gmail.com\"\n\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://127.0.0.1:3000/users/login",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "3000",
+									"path": [
+										"users",
+										"login"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"description": "",
+									"type": "text"
+								},
+								{
+									"key": "Content-Length",
+									"value": "1340"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"53c-m5Ks4hZU1mN5JtE1Jo9qnAUqVkQ\""
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 30 Jan 2026 05:36:05 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"error\",\n    \"message\": \"property is missing password\",\n    \"stack\": \"Error: property is missing password\\n    at checkRequestBody (file:///media/eslam-omar/Eslam/Workspace/Training/Route/Assginment-9/src/common/utils/checkRequestBody.utils.js:5:23)\\n    at loginUser (file:///media/eslam-omar/Eslam/Workspace/Training/Route/Assginment-9/src/modules/users/users.service.js:42:9)\\n    at Layer.handleRequest (/media/eslam-omar/Eslam/Workspace/Training/Route/Assginment-9/node_modules/router/lib/layer.js:152:17)\\n    at next (/media/eslam-omar/Eslam/Workspace/Training/Route/Assginment-9/node_modules/router/lib/route.js:157:13)\\n    at Route.dispatch (/media/eslam-omar/Eslam/Workspace/Training/Route/Assginment-9/node_modules/router/lib/route.js:117:3)\\n    at handle (/media/eslam-omar/Eslam/Workspace/Training/Route/Assginment-9/node_modules/router/index.js:435:11)\\n    at Layer.handleRequest (/media/eslam-omar/Eslam/Workspace/Training/Route/Assginment-9/node_modules/router/lib/layer.js:152:17)\\n    at /media/eslam-omar/Eslam/Workspace/Training/Route/Assginment-9/node_modules/router/index.js:295:15\\n    at processParams (/media/eslam-omar/Eslam/Workspace/Training/Route/Assginment-9/node_modules/router/index.js:582:12)\\n    at next (/media/eslam-omar/Eslam/Workspace/Training/Route/Assginment-9/node_modules/router/index.js:291:5)\"\n}"
+						},
+						{
+							"name": "fail (email not found)",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"email\": \"eslam123@gmail.com\",\n    \"password\": \"1010200111\"\n\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://127.0.0.1:3000/users/login",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "3000",
+									"path": [
+										"users",
+										"login"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": null,
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "293"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"125-FasK0Ke8ayKvlCFkY36aTzZTHZw\""
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 30 Jan 2026 05:37:47 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"error\",\n    \"message\": \"Email not found\",\n    \"stack\": \"Error: Email not found\\n    at loginUser (file:///media/eslam-omar/Eslam/Workspace/Training/Route/Assginment-9/src/modules/users/users.service.js:46:20)\\n    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)\"\n}"
+						},
+						{
+							"name": "fail (password is wrong)",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"email\": \"eslam12@gmail.com\",\n    \"password\": \"1010200111\"\n\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://127.0.0.1:3000/users/login",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "3000",
+									"path": [
+										"users",
+										"login"
+									]
+								}
+							},
+							"status": "Unauthorized",
+							"code": 401,
+							"_postman_previewlanguage": null,
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "213"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"d5-M9XlZVayTxFiXjQzr6icuSgeZGY\""
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 30 Jan 2026 05:38:46 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"error\",\n    \"message\": \"Password is wrong\",\n    \"stack\": \"Error: Password is wrong\\n    at loginUser (file:///media/eslam-omar/Eslam/Workspace/Training/Route/Assginment-9/src/modules/users/users.service.js:55:16)\"\n}"
+						},
+						{
+							"name": "success",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"email\": \"eslam12@gmail.com\",\n    \"password\": \"10102001\"\n\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://127.0.0.1:3000/users/login",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "3000",
+									"path": [
+										"users",
+										"login"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": null,
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "261"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"105-/1L/nE0IpMczT9kbmmkqgMKr6Kw\""
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 30 Jan 2026 05:39:36 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"success\",\n    \"message\": \"User has been retrieved successfully\",\n    \"data\": {\n        \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2OTdjMzk1Y2JmMTM0OTkxMWRmMTY0ZWUiLCJpYXQiOjE3Njk3NTE1NzYsImV4cCI6MTc2OTc1NTE3Nn0.ilnWiTfofXblgSx0FbNWY6kK3DBf9DptrtSqN-2gly4\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "edit",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"eslam1234@gmail.com\",\n    \"age\": 30,\n    \"phone\": \"0118484225\",\n    \"name\": \"Mohamed Ramadan\"\n\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:3000/users/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3000",
+							"path": [
+								"users",
+								""
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "fail (no data)",
+							"originalRequest": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://127.0.0.1:3000/users/",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "3000",
+									"path": [
+										"users",
+										""
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"description": "",
+									"type": "text"
+								},
+								{
+									"key": "Content-Length",
+									"value": "1335"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"537-CQppxefrrJAWHhrE35r4tuaeSYo\""
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 30 Jan 2026 06:58:25 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"error\",\n    \"message\": \"must enter at least one field to edit\",\n    \"stack\": \"Error: must enter at least one field to edit\\n    at editUser (file:///media/eslam-omar/Eslam/Workspace/Training/Route/Assginment-9/src/modules/users/users.service.js:71:11)\\n    at Layer.handleRequest (/media/eslam-omar/Eslam/Workspace/Training/Route/Assginment-9/node_modules/router/lib/layer.js:152:17)\\n    at next (/media/eslam-omar/Eslam/Workspace/Training/Route/Assginment-9/node_modules/router/lib/route.js:157:13)\\n    at Route.dispatch (/media/eslam-omar/Eslam/Workspace/Training/Route/Assginment-9/node_modules/router/lib/route.js:117:3)\\n    at handle (/media/eslam-omar/Eslam/Workspace/Training/Route/Assginment-9/node_modules/router/index.js:435:11)\\n    at Layer.handleRequest (/media/eslam-omar/Eslam/Workspace/Training/Route/Assginment-9/node_modules/router/lib/layer.js:152:17)\\n    at /media/eslam-omar/Eslam/Workspace/Training/Route/Assginment-9/node_modules/router/index.js:295:15\\n    at processParams (/media/eslam-omar/Eslam/Workspace/Training/Route/Assginment-9/node_modules/router/index.js:582:12)\\n    at next (/media/eslam-omar/Eslam/Workspace/Training/Route/Assginment-9/node_modules/router/index.js:291:5)\\n    at router.handle (/media/eslam-omar/Eslam/Workspace/Training/Route/Assginment-9/node_modules/router/index.js:186:3)\"\n}"
+						},
+						{
+							"name": "fail (password edit)",
+							"originalRequest": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"email\": \"asdasd@gmail.com\",\n    \"password\": \"5012\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://127.0.0.1:3000/users/",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "3000",
+									"path": [
+										"users",
+										""
+									]
+								}
+							},
+							"status": "Unauthorized",
+							"code": 401,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"description": "",
+									"type": "text"
+								},
+								{
+									"key": "Content-Length",
+									"value": "1299"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"513-S5EE/qt8xPUlDtFSm70Hv+45o50\""
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 30 Jan 2026 07:01:10 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"error\",\n    \"message\": \"can't edit password\",\n    \"stack\": \"Error: can't edit password\\n    at editUser (file:///media/eslam-omar/Eslam/Workspace/Training/Route/Assginment-9/src/modules/users/users.service.js:76:11)\\n    at Layer.handleRequest (/media/eslam-omar/Eslam/Workspace/Training/Route/Assginment-9/node_modules/router/lib/layer.js:152:17)\\n    at next (/media/eslam-omar/Eslam/Workspace/Training/Route/Assginment-9/node_modules/router/lib/route.js:157:13)\\n    at Route.dispatch (/media/eslam-omar/Eslam/Workspace/Training/Route/Assginment-9/node_modules/router/lib/route.js:117:3)\\n    at handle (/media/eslam-omar/Eslam/Workspace/Training/Route/Assginment-9/node_modules/router/index.js:435:11)\\n    at Layer.handleRequest (/media/eslam-omar/Eslam/Workspace/Training/Route/Assginment-9/node_modules/router/lib/layer.js:152:17)\\n    at /media/eslam-omar/Eslam/Workspace/Training/Route/Assginment-9/node_modules/router/index.js:295:15\\n    at processParams (/media/eslam-omar/Eslam/Workspace/Training/Route/Assginment-9/node_modules/router/index.js:582:12)\\n    at next (/media/eslam-omar/Eslam/Workspace/Training/Route/Assginment-9/node_modules/router/index.js:291:5)\\n    at router.handle (/media/eslam-omar/Eslam/Workspace/Training/Route/Assginment-9/node_modules/router/index.js:186:3)\"\n}"
+						},
+						{
+							"name": "fail (email exist)",
+							"originalRequest": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"email\": \"asdasd@gmail.com\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://127.0.0.1:3000/users/",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "3000",
+									"path": [
+										"users",
+										""
+									]
+								}
+							},
+							"status": "Conflict",
+							"code": 409,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"description": "",
+									"type": "text"
+								},
+								{
+									"key": "Content-Length",
+									"value": "300"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"12c-S4oOjilYEb32X10WNVitqQlsqYY\""
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 30 Jan 2026 07:43:46 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"error\",\n    \"message\": \"email already exist\",\n    \"stack\": \"Error: email already exist\\n    at editUser (file:///media/eslam-omar/Eslam/Workspace/Training/Route/Assginment-9/src/modules/users/users.service.js:98:21)\\n    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)\"\n}"
+						},
+						{
+							"name": "fail (not signed in)",
+							"originalRequest": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"email\": \"asdasd@gmail.com\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://127.0.0.1:3000/users/",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "3000",
+									"path": [
+										"users",
+										""
+									]
+								}
+							},
+							"status": "Internal Server Error",
+							"code": 500,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"description": "",
+									"type": "text"
+								},
+								{
+									"key": "Content-Length",
+									"value": "1344"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"540-7SSOpVtVAX7ij7BUXbZFp3Vk8ww\""
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 30 Jan 2026 07:48:45 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"error\",\n    \"message\": \"there is not any user signed in\",\n    \"stack\": \"Error: there is not any user signed in\\n    at decryptToken (file:///media/eslam-omar/Eslam/Workspace/Training/Route/Assginment-9/src/common/security/decryptToken.security.js:7:21)\\n    at editUser (file:///media/eslam-omar/Eslam/Workspace/Training/Route/Assginment-9/src/modules/users/users.service.js:87:18)\\n    at Layer.handleRequest (/media/eslam-omar/Eslam/Workspace/Training/Route/Assginment-9/node_modules/router/lib/layer.js:152:17)\\n    at next (/media/eslam-omar/Eslam/Workspace/Training/Route/Assginment-9/node_modules/router/lib/route.js:157:13)\\n    at Route.dispatch (/media/eslam-omar/Eslam/Workspace/Training/Route/Assginment-9/node_modules/router/lib/route.js:117:3)\\n    at handle (/media/eslam-omar/Eslam/Workspace/Training/Route/Assginment-9/node_modules/router/index.js:435:11)\\n    at Layer.handleRequest (/media/eslam-omar/Eslam/Workspace/Training/Route/Assginment-9/node_modules/router/lib/layer.js:152:17)\\n    at /media/eslam-omar/Eslam/Workspace/Training/Route/Assginment-9/node_modules/router/index.js:295:15\\n    at processParams (/media/eslam-omar/Eslam/Workspace/Training/Route/Assginment-9/node_modules/router/index.js:582:12)\\n    at next (/media/eslam-omar/Eslam/Workspace/Training/Route/Assginment-9/node_modules/router/index.js:291:5)\"\n}"
+						},
+						{
+							"name": "success",
+							"originalRequest": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"email\": \"MR@gmail.com\",\n    \"age\": 30,\n    \"phone\": \"0118484225\",\n    \"name\": \"Mohamed Ramadan\"\n\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://127.0.0.1:3000/users/",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "3000",
+									"path": [
+										"users",
+										""
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": null,
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2OTdjNjA5MjhlODliODk4ZmZmMTE4MDciLCJpYXQiOjE3Njk3NTk0OTksImV4cCI6MTc2OTc2MzA5OX0.wr0QOoGbRcXm0P4ZfHQ_vmB6prd1hBSNZevpQS5Uezs"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "26"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"1a-xDMAuPrT5Dozg+Z00ab9Miq0da4\""
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 30 Jan 2026 07:52:06 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"User updated\"\n}"
+						}
+					]
+				},
+				{
+					"name": "delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://127.0.0.1:3000/users/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3000",
+							"path": [
+								"users",
+								""
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "fail",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "http://127.0.0.1:3000/users/",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "3000",
+									"path": [
+										"users",
+										""
+									]
+								}
+							},
+							"status": "Internal Server Error",
+							"code": 500,
+							"_postman_previewlanguage": null,
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "1323"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"52b-Jcvj8BJEnoDduKpVmwxdCroq9JI\""
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 30 Jan 2026 09:06:07 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"error\",\n    \"message\": \"there is no signed in user\",\n    \"stack\": \"Error: there is no signed in user\\n    at getToken (file:///media/eslam-omar/Eslam/Workspace/Training/Route/Assginment-9/src/common/utils/getToken.utils.js:7:21)\\n    at deleteUser (file:///media/eslam-omar/Eslam/Workspace/Training/Route/Assginment-9/src/modules/users/users.service.js:116:18)\\n    at Layer.handleRequest (/media/eslam-omar/Eslam/Workspace/Training/Route/Assginment-9/node_modules/router/lib/layer.js:152:17)\\n    at next (/media/eslam-omar/Eslam/Workspace/Training/Route/Assginment-9/node_modules/router/lib/route.js:157:13)\\n    at Route.dispatch (/media/eslam-omar/Eslam/Workspace/Training/Route/Assginment-9/node_modules/router/lib/route.js:117:3)\\n    at handle (/media/eslam-omar/Eslam/Workspace/Training/Route/Assginment-9/node_modules/router/index.js:435:11)\\n    at Layer.handleRequest (/media/eslam-omar/Eslam/Workspace/Training/Route/Assginment-9/node_modules/router/lib/layer.js:152:17)\\n    at /media/eslam-omar/Eslam/Workspace/Training/Route/Assginment-9/node_modules/router/index.js:295:15\\n    at processParams (/media/eslam-omar/Eslam/Workspace/Training/Route/Assginment-9/node_modules/router/index.js:582:12)\\n    at next (/media/eslam-omar/Eslam/Workspace/Training/Route/Assginment-9/node_modules/router/index.js:291:5)\"\n}"
+						},
+						{
+							"name": "success",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "http://127.0.0.1:3000/users/",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "3000",
+									"path": [
+										"users",
+										""
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": null,
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2OTdjNzQ0MzYxMDA4Mzk5MjE0MzFjZTciLCJpYXQiOjE3Njk3NjM5MTQsImV4cCI6MTc2OTc2NzUxNH0.FheeOljdfe3HlgLCGt_nuAm3Vpo7o9eaFZizgKupe-U"
+								},
+								{
+									"key": "Set-Cookie",
+									"value": "jwt=; Path=/; Expires=Thu, 01 Jan 1970 00:00:00 GMT; HttpOnly"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "67"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"43-lLPMLkjn81rykPe5EjNspItd5Io\""
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 30 Jan 2026 09:05:52 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"success\",\n    \"message\": \"user has been deleted successfully\"\n}"
+						}
+					]
+				},
+				{
+					"name": "getData",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"MR@gmail.com\",\n    \"age\": 30,\n    \"phone\": \"0118484225\",\n    \"name\": \"Mohamed Ramadan\"\n\n}"
+						},
+						"url": {
+							"raw": "http://127.0.0.1:3000/users/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3000",
+							"path": [
+								"users",
+								""
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "fail",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"email\": \"MR@gmail.com\",\n    \"age\": 30,\n    \"phone\": \"0118484225\",\n    \"name\": \"Mohamed Ramadan\"\n\n}"
+								},
+								"url": {
+									"raw": "http://127.0.0.1:3000/users/",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "3000",
+									"path": [
+										"users",
+										""
+									]
+								}
+							},
+							"status": "Internal Server Error",
+							"code": 500,
+							"_postman_previewlanguage": null,
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "1324"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"52c-qztKWvSGFpT6v1H2eiamm0fG+hY\""
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 30 Jan 2026 09:06:54 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"error\",\n    \"message\": \"there is no signed in user\",\n    \"stack\": \"Error: there is no signed in user\\n    at getToken (file:///media/eslam-omar/Eslam/Workspace/Training/Route/Assginment-9/src/common/utils/getToken.utils.js:7:21)\\n    at getUserData (file:///media/eslam-omar/Eslam/Workspace/Training/Route/Assginment-9/src/modules/users/users.service.js:136:18)\\n    at Layer.handleRequest (/media/eslam-omar/Eslam/Workspace/Training/Route/Assginment-9/node_modules/router/lib/layer.js:152:17)\\n    at next (/media/eslam-omar/Eslam/Workspace/Training/Route/Assginment-9/node_modules/router/lib/route.js:157:13)\\n    at Route.dispatch (/media/eslam-omar/Eslam/Workspace/Training/Route/Assginment-9/node_modules/router/lib/route.js:117:3)\\n    at handle (/media/eslam-omar/Eslam/Workspace/Training/Route/Assginment-9/node_modules/router/index.js:435:11)\\n    at Layer.handleRequest (/media/eslam-omar/Eslam/Workspace/Training/Route/Assginment-9/node_modules/router/lib/layer.js:152:17)\\n    at /media/eslam-omar/Eslam/Workspace/Training/Route/Assginment-9/node_modules/router/index.js:295:15\\n    at processParams (/media/eslam-omar/Eslam/Workspace/Training/Route/Assginment-9/node_modules/router/index.js:582:12)\\n    at next (/media/eslam-omar/Eslam/Workspace/Training/Route/Assginment-9/node_modules/router/index.js:291:5)\"\n}"
+						},
+						{
+							"name": "success",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"email\": \"MR@gmail.com\",\n    \"age\": 30,\n    \"phone\": \"0118484225\",\n    \"name\": \"Mohamed Ramadan\"\n\n}"
+								},
+								"url": {
+									"raw": "http://127.0.0.1:3000/users/",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "3000",
+									"path": [
+										"users",
+										""
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2OTdjNzI2MTU2NjI0OTZiOWRhOGNlODYiLCJpYXQiOjE3Njk3NjM0MjgsImV4cCI6MTc2OTc2NzAyOH0.UTV0CAsiXqNFXxc_6PAOqZ2cI5b1TS05k4MnwO2mqF0"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"description": "",
+									"type": "text"
+								},
+								{
+									"key": "Content-Length",
+									"value": "364"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"16c-clQOcUDIQYgdZp7kJ7zvFoLEWAc\""
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 30 Jan 2026 09:01:19 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"success\",\n    \"message\": \"user data retrieved successfully\",\n    \"data\": {\n        \"_id\": \"697c72615662496b9da8ce86\",\n        \"name\": \"eslam omar\",\n        \"email\": \"eslam@gmail.com\",\n        \"password\": \"$2b$08$40R9VyDnREnHpegBhJ3ny.1N7Lc/rouVQ3zF8BzH4q1I0KiJSnWPC\",\n        \"phone\": \"01063209774\",\n        \"age\": 25,\n        \"createdAt\": \"2026-01-30T08:57:05.064Z\",\n        \"updatedAt\": \"2026-01-30T08:57:05.064Z\",\n        \"__enc_phone\": false,\n        \"__v\": 0\n    }\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Note",
+			"item": [
+				{
+					"name": "createNote",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\": \"future\",\n    \"content\": \"i will be greate\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:3000/notes",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3000",
+							"path": [
+								"notes"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "fail property is missing",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"title\": \"new note\"\n   \n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://127.0.0.1:3000/notes",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "3000",
+									"path": [
+										"notes"
+									]
+								}
+							},
+							"status": "Internal Server Error",
+							"code": 500,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"description": "",
+									"type": "text"
+								},
+								{
+									"key": "Content-Length",
+									"value": "1386"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"56a-rSFWjcn0XBsqEwIhFo0qoVsQI0I\""
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 30 Jan 2026 10:34:50 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"error\",\n    \"message\": \"Note validation failed: content: content is required\",\n    \"stack\": \"ValidationError: Note validation failed: content: content is required\\n    at Document.invalidate (/media/eslam-omar/Eslam/Workspace/Training/Route/Assginment-9/node_modules/mongoose/lib/document.js:3385:32)\\n    at validatePath (/media/eslam-omar/Eslam/Workspace/Training/Route/Assginment-9/node_modules/mongoose/lib/document.js:3160:13)\\n    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)\\n    at async Promise.all (index 1)\\n    at async model.$__validate (/media/eslam-omar/Eslam/Workspace/Training/Route/Assginment-9/node_modules/mongoose/lib/document.js:3101:3)\\n    at async model.validate (/media/eslam-omar/Eslam/Workspace/Training/Route/Assginment-9/node_modules/mongoose/lib/document.js:2672:5)\\n    at async model.validateBeforeSave (/media/eslam-omar/Eslam/Workspace/Training/Route/Assginment-9/node_modules/mongoose/lib/plugins/validateBeforeSave.js:34:7)\\n    at async Kareem.execPre (/media/eslam-omar/Eslam/Workspace/Training/Route/Assginment-9/node_modules/kareem/index.js:65:24)\\n    at async model.$__save (/media/eslam-omar/Eslam/Workspace/Training/Route/Assginment-9/node_modules/mongoose/lib/model.js:369:5)\\n    at async model.save (/media/eslam-omar/Eslam/Workspace/Training/Route/Assginment-9/node_modules/mongoose/lib/model.js:609:5)\"\n}"
+						},
+						{
+							"name": "fail (no signed user)",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"title\": \"new note\",\n    \"content\": \"hello world\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://127.0.0.1:3000/notes",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "3000",
+									"path": [
+										"notes"
+									]
+								}
+							},
+							"status": "Internal Server Error",
+							"code": 500,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"description": "",
+									"type": "text"
+								},
+								{
+									"key": "Content-Length",
+									"value": "1321"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"529-PMiR2O34jiGJraQSLJaFXgcoq4w\""
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 30 Jan 2026 10:35:22 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"error\",\n    \"message\": \"there is no signed in user\",\n    \"stack\": \"Error: there is no signed in user\\n    at getToken (file:///media/eslam-omar/Eslam/Workspace/Training/Route/Assginment-9/src/common/utils/getToken.utils.js:7:21)\\n    at createNote (file:///media/eslam-omar/Eslam/Workspace/Training/Route/Assginment-9/src/modules/notes/notes.service.js:7:18)\\n    at Layer.handleRequest (/media/eslam-omar/Eslam/Workspace/Training/Route/Assginment-9/node_modules/router/lib/layer.js:152:17)\\n    at next (/media/eslam-omar/Eslam/Workspace/Training/Route/Assginment-9/node_modules/router/lib/route.js:157:13)\\n    at Route.dispatch (/media/eslam-omar/Eslam/Workspace/Training/Route/Assginment-9/node_modules/router/lib/route.js:117:3)\\n    at handle (/media/eslam-omar/Eslam/Workspace/Training/Route/Assginment-9/node_modules/router/index.js:435:11)\\n    at Layer.handleRequest (/media/eslam-omar/Eslam/Workspace/Training/Route/Assginment-9/node_modules/router/lib/layer.js:152:17)\\n    at /media/eslam-omar/Eslam/Workspace/Training/Route/Assginment-9/node_modules/router/index.js:295:15\\n    at processParams (/media/eslam-omar/Eslam/Workspace/Training/Route/Assginment-9/node_modules/router/index.js:582:12)\\n    at next (/media/eslam-omar/Eslam/Workspace/Training/Route/Assginment-9/node_modules/router/index.js:291:5)\"\n}"
+						},
+						{
+							"name": "success",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"title\": \"new note\",\n    \"content\": \"hello world\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://127.0.0.1:3000/notes",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "3000",
+									"path": [
+										"notes"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"description": "",
+									"type": "text"
+								},
+								{
+									"key": "Content-Length",
+									"value": "58"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"3a-6Rl1tvRIbnGbH7s94wDo0kF2D9Y\""
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 30 Jan 2026 10:33:28 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"success\",\n    \"message\": \"Note created successfully\"\n}"
+						}
+					]
+				},
+				{
+					"name": "updateNote",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\": \"new note\",\n    \"content\": \"hello world\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:3000/notes/697c88f793c3e78caa8aad88",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3000",
+							"path": [
+								"notes",
+								"697c88f793c3e78caa8aad88"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "fail (no logged user)",
+							"originalRequest": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"title\": \"new note\",\n    \"content\": \"hello world\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://127.0.0.1:3000/notes/697c88f793c3e78caa8aad89",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "3000",
+									"path": [
+										"notes",
+										"697c88f793c3e78caa8aad89"
+									]
+								}
+							},
+							"status": "Internal Server Error",
+							"code": 500,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "",
+									"type": "text"
+								},
+								{
+									"key": "Content-Length",
+									"value": "1316"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"524-CqirxdpsUVYYr/V+1bQ5yY24P3Q\""
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 30 Jan 2026 17:11:56 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"error\",\n    \"message\": \"there is no signed in user\",\n    \"stack\": \"Error: there is no signed in user\\n    at getToken (file:///media/eslam-omar/Eslam/Workspace/Training/Route/Assginment-9/src/common/utils/getToken.utils.js:7:21)\\n    at updateNote (file:///media/eslam-omar/Eslam/Workspace/Training/Route/Assginment-9/src/modules/notes/notes.service.js:29:18)\\n    at Layer.handleRequest (/media/eslam-omar/Eslam/Workspace/Training/Route/Assginment-9/node_modules/router/lib/layer.js:152:17)\\n    at next (/media/eslam-omar/Eslam/Workspace/Training/Route/Assginment-9/node_modules/router/lib/route.js:157:13)\\n    at Route.dispatch (/media/eslam-omar/Eslam/Workspace/Training/Route/Assginment-9/node_modules/router/lib/route.js:117:3)\\n    at handle (/media/eslam-omar/Eslam/Workspace/Training/Route/Assginment-9/node_modules/router/index.js:435:11)\\n    at Layer.handleRequest (/media/eslam-omar/Eslam/Workspace/Training/Route/Assginment-9/node_modules/router/lib/layer.js:152:17)\\n    at /media/eslam-omar/Eslam/Workspace/Training/Route/Assginment-9/node_modules/router/index.js:295:15\\n    at param (/media/eslam-omar/Eslam/Workspace/Training/Route/Assginment-9/node_modules/router/index.js:600:14)\\n    at param (/media/eslam-omar/Eslam/Workspace/Training/Route/Assginment-9/node_modules/router/index.js:610:14)\"\n}"
+						},
+						{
+							"name": "fail (no note with this id)",
+							"originalRequest": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"title\": \"new note\",\n    \"content\": \"hello world\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://127.0.0.1:3000/notes/697c88f793c3e78caa8aad89",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "3000",
+									"path": [
+										"notes",
+										"697c88f793c3e78caa8aad89"
+									]
+								}
+							},
+							"status": "Unauthorized",
+							"code": 401,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "",
+									"type": "text"
+								},
+								{
+									"key": "Content-Length",
+									"value": "384"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"180-5tgIS12v2JSpw9MoQxaXqBA1YPQ\""
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 30 Jan 2026 17:14:49 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"error\",\n    \"message\": \"user don't have this note or there is no notes for this user\",\n    \"stack\": \"Error: user don't have this note or there is no notes for this user\\n    at updateNote (file:///media/eslam-omar/Eslam/Workspace/Training/Route/Assginment-9/src/modules/notes/notes.service.js:45:11)\\n    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)\"\n}"
+						},
+						{
+							"name": "fail (user don't have this note)",
+							"originalRequest": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"title\": \"new note\",\n    \"content\": \"hello world\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://127.0.0.1:3000/notes/697c88f793c3e78caa8aad88",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "3000",
+									"path": [
+										"notes",
+										"697c88f793c3e78caa8aad88"
+									]
+								}
+							},
+							"status": "Unauthorized",
+							"code": 401,
+							"_postman_previewlanguage": null,
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "384"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"180-5tgIS12v2JSpw9MoQxaXqBA1YPQ\""
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 30 Jan 2026 17:16:23 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"error\",\n    \"message\": \"user don't have this note or there is no notes for this user\",\n    \"stack\": \"Error: user don't have this note or there is no notes for this user\\n    at updateNote (file:///media/eslam-omar/Eslam/Workspace/Training/Route/Assginment-9/src/modules/notes/notes.service.js:45:11)\\n    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)\"\n}"
+						},
+						{
+							"name": "fail (missing property)",
+							"originalRequest": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"title\": \"new note\"\n    \n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://127.0.0.1:3000/notes/697c88f793c3e78caa8aad88",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "3000",
+									"path": [
+										"notes",
+										"697c88f793c3e78caa8aad88"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"description": "",
+									"type": "text"
+								},
+								{
+									"key": "Content-Length",
+									"value": "1333"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"535-iNqfKuRtgr95eDn4EM16c2Cyqr0\""
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 30 Jan 2026 17:29:50 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"error\",\n    \"message\": \"property is missing content\",\n    \"stack\": \"Error: property is missing content\\n    at checkRequestBody (file:///media/eslam-omar/Eslam/Workspace/Training/Route/Assginment-9/src/common/utils/checkRequestBody.utils.js:5:23)\\n    at updateNote (file:///media/eslam-omar/Eslam/Workspace/Training/Route/Assginment-9/src/modules/notes/notes.service.js:34:9)\\n    at Layer.handleRequest (/media/eslam-omar/Eslam/Workspace/Training/Route/Assginment-9/node_modules/router/lib/layer.js:152:17)\\n    at next (/media/eslam-omar/Eslam/Workspace/Training/Route/Assginment-9/node_modules/router/lib/route.js:157:13)\\n    at Route.dispatch (/media/eslam-omar/Eslam/Workspace/Training/Route/Assginment-9/node_modules/router/lib/route.js:117:3)\\n    at handle (/media/eslam-omar/Eslam/Workspace/Training/Route/Assginment-9/node_modules/router/index.js:435:11)\\n    at Layer.handleRequest (/media/eslam-omar/Eslam/Workspace/Training/Route/Assginment-9/node_modules/router/lib/layer.js:152:17)\\n    at /media/eslam-omar/Eslam/Workspace/Training/Route/Assginment-9/node_modules/router/index.js:295:15\\n    at param (/media/eslam-omar/Eslam/Workspace/Training/Route/Assginment-9/node_modules/router/index.js:600:14)\\n    at param (/media/eslam-omar/Eslam/Workspace/Training/Route/Assginment-9/node_modules/router/index.js:610:14)\"\n}"
+						},
+						{
+							"name": "success",
+							"originalRequest": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"title\": \"new note\",\n    \"content\": \"hello world\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://127.0.0.1:3000/notes/697c88f793c3e78caa8aad88",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "3000",
+									"path": [
+										"notes",
+										"697c88f793c3e78caa8aad88"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "",
+									"type": "text"
+								},
+								{
+									"key": "Content-Length",
+									"value": "274"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"112-L1fvnoZDmi1cU8UZ9VKtHxRNSiE\""
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 30 Jan 2026 17:16:54 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"success\",\n    \"message\": \"note updated successfully\",\n    \"data\": {\n        \"note\": {\n            \"_id\": \"697c88f793c3e78caa8aad88\",\n            \"title\": \"new note\",\n            \"content\": \"hello world\",\n            \"userId\": \"697c85d3982b22e6a628f772\",\n            \"createdAt\": \"2026-01-30T10:33:27.846Z\",\n            \"updatedAt\": \"2026-01-30T17:16:54.355Z\",\n            \"__v\": 0\n        }\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "replace note",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\": \"new note\",\n    \"content\": \"hello world\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:3000/notes/697c88f793c3e78caa8aad89",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3000",
+							"path": [
+								"notes",
+								"697c88f793c3e78caa8aad89"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "fail (property is missing)",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"title\": \"new note\"\n    \n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://127.0.0.1:3000/notes/697c88f793c3e78caa8aad88",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "3000",
+									"path": [
+										"notes",
+										"697c88f793c3e78caa8aad88"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "",
+									"type": "text"
+								},
+								{
+									"key": "Content-Length",
+									"value": "1334"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"536-dFIeA2nf8hJ7LCVarFif6CxBw5w\""
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 30 Jan 2026 17:34:40 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"error\",\n    \"message\": \"property is missing content\",\n    \"stack\": \"Error: property is missing content\\n    at checkRequestBody (file:///media/eslam-omar/Eslam/Workspace/Training/Route/Assginment-9/src/common/utils/checkRequestBody.utils.js:5:23)\\n    at replaceNote (file:///media/eslam-omar/Eslam/Workspace/Training/Route/Assginment-9/src/modules/notes/notes.service.js:69:9)\\n    at Layer.handleRequest (/media/eslam-omar/Eslam/Workspace/Training/Route/Assginment-9/node_modules/router/lib/layer.js:152:17)\\n    at next (/media/eslam-omar/Eslam/Workspace/Training/Route/Assginment-9/node_modules/router/lib/route.js:157:13)\\n    at Route.dispatch (/media/eslam-omar/Eslam/Workspace/Training/Route/Assginment-9/node_modules/router/lib/route.js:117:3)\\n    at handle (/media/eslam-omar/Eslam/Workspace/Training/Route/Assginment-9/node_modules/router/index.js:435:11)\\n    at Layer.handleRequest (/media/eslam-omar/Eslam/Workspace/Training/Route/Assginment-9/node_modules/router/lib/layer.js:152:17)\\n    at /media/eslam-omar/Eslam/Workspace/Training/Route/Assginment-9/node_modules/router/index.js:295:15\\n    at param (/media/eslam-omar/Eslam/Workspace/Training/Route/Assginment-9/node_modules/router/index.js:600:14)\\n    at param (/media/eslam-omar/Eslam/Workspace/Training/Route/Assginment-9/node_modules/router/index.js:610:14)\"\n}"
+						},
+						{
+							"name": "fail (note not found)",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"title\": \"new note\",\n    \"content\": \"hello world\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://127.0.0.1:3000/notes/697c88f793c3e78caa8aad89",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "3000",
+									"path": [
+										"notes",
+										"697c88f793c3e78caa8aad89"
+									]
+								}
+							},
+							"status": "Unauthorized",
+							"code": 401,
+							"_postman_previewlanguage": null,
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "385"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"181-2DhNgGe4YdpOX7Hig1zx3gRJ+4w\""
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 30 Jan 2026 17:35:28 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"error\",\n    \"message\": \"user don't have this note or there is no notes for this user\",\n    \"stack\": \"Error: user don't have this note or there is no notes for this user\\n    at replaceNote (file:///media/eslam-omar/Eslam/Workspace/Training/Route/Assginment-9/src/modules/notes/notes.service.js:82:11)\\n    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)\"\n}"
+						},
+						{
+							"name": "success",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"title\": \"new note\",\n    \"content\": \"hello world\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://127.0.0.1:3000/notes/697c88f793c3e78caa8aad88",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "3000",
+									"path": [
+										"notes",
+										"697c88f793c3e78caa8aad88"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"description": "",
+									"type": "text"
+								},
+								{
+									"key": "Content-Length",
+									"value": "231"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"e7-/GExy2KfibqKlrIGoewyuJwBQTM\""
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 30 Jan 2026 17:33:32 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"success\",\n    \"message\": \"note replaced successfully\",\n    \"data\": {\n        \"note\": {\n            \"_id\": \"697c88f793c3e78caa8aad88\",\n            \"title\": \"new note\",\n            \"content\": \"hello world\",\n            \"createdAt\": \"2026-01-30T17:33:32.130Z\",\n            \"updatedAt\": \"2026-01-30T17:33:32.130Z\"\n        }\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "updateTitleInAllNotes",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\": \"Eslam Omar Mohamed\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:3000/notes/all",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3000",
+							"path": [
+								"notes",
+								"all"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "fail (missing property)",
+							"originalRequest": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://127.0.0.1:3000/notes/all",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "3000",
+									"path": [
+										"notes",
+										"all"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "",
+									"type": "text"
+								},
+								{
+									"key": "Content-Length",
+									"value": "1329"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"531-MEGKd0ySBWyDs5K3oHA/OZDuvNM\""
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 30 Jan 2026 17:43:44 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"error\",\n    \"message\": \"property is missing title\",\n    \"stack\": \"Error: property is missing title\\n    at checkRequestBody (file:///media/eslam-omar/Eslam/Workspace/Training/Route/Assginment-9/src/common/utils/checkRequestBody.utils.js:5:23)\\n    at updateNote (file:///media/eslam-omar/Eslam/Workspace/Training/Route/Assginment-9/src/modules/notes/notes.service.js:34:9)\\n    at Layer.handleRequest (/media/eslam-omar/Eslam/Workspace/Training/Route/Assginment-9/node_modules/router/lib/layer.js:152:17)\\n    at next (/media/eslam-omar/Eslam/Workspace/Training/Route/Assginment-9/node_modules/router/lib/route.js:157:13)\\n    at Route.dispatch (/media/eslam-omar/Eslam/Workspace/Training/Route/Assginment-9/node_modules/router/lib/route.js:117:3)\\n    at handle (/media/eslam-omar/Eslam/Workspace/Training/Route/Assginment-9/node_modules/router/index.js:435:11)\\n    at Layer.handleRequest (/media/eslam-omar/Eslam/Workspace/Training/Route/Assginment-9/node_modules/router/lib/layer.js:152:17)\\n    at /media/eslam-omar/Eslam/Workspace/Training/Route/Assginment-9/node_modules/router/index.js:295:15\\n    at param (/media/eslam-omar/Eslam/Workspace/Training/Route/Assginment-9/node_modules/router/index.js:600:14)\\n    at param (/media/eslam-omar/Eslam/Workspace/Training/Route/Assginment-9/node_modules/router/index.js:610:14)\"\n}"
+						},
+						{
+							"name": "fail (no logged in user)",
+							"originalRequest": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"title\": \"Eslam Omar Mohamed\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://127.0.0.1:3000/notes/all",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "3000",
+									"path": [
+										"notes",
+										"all"
+									]
+								}
+							},
+							"status": "Internal Server Error",
+							"code": 500,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "",
+									"type": "text"
+								},
+								{
+									"key": "Content-Length",
+									"value": "1323"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"52b-NQe0LR2CnD7inUhhA+IBQ/8WboA\""
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 30 Jan 2026 17:49:39 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"error\",\n    \"message\": \"there is no signed in user\",\n    \"stack\": \"Error: there is no signed in user\\n    at getToken (file:///media/eslam-omar/Eslam/Workspace/Training/Route/Assginment-9/src/common/utils/getToken.utils.js:7:21)\\n    at updateTitle (file:///media/eslam-omar/Eslam/Workspace/Training/Route/Assginment-9/src/modules/notes/notes.service.js:96:18)\\n    at Layer.handleRequest (/media/eslam-omar/Eslam/Workspace/Training/Route/Assginment-9/node_modules/router/lib/layer.js:152:17)\\n    at next (/media/eslam-omar/Eslam/Workspace/Training/Route/Assginment-9/node_modules/router/lib/route.js:157:13)\\n    at Route.dispatch (/media/eslam-omar/Eslam/Workspace/Training/Route/Assginment-9/node_modules/router/lib/route.js:117:3)\\n    at handle (/media/eslam-omar/Eslam/Workspace/Training/Route/Assginment-9/node_modules/router/index.js:435:11)\\n    at Layer.handleRequest (/media/eslam-omar/Eslam/Workspace/Training/Route/Assginment-9/node_modules/router/lib/layer.js:152:17)\\n    at /media/eslam-omar/Eslam/Workspace/Training/Route/Assginment-9/node_modules/router/index.js:295:15\\n    at processParams (/media/eslam-omar/Eslam/Workspace/Training/Route/Assginment-9/node_modules/router/index.js:582:12)\\n    at next (/media/eslam-omar/Eslam/Workspace/Training/Route/Assginment-9/node_modules/router/index.js:291:5)\"\n}"
+						},
+						{
+							"name": "fail (user don't have this note)",
+							"originalRequest": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"title\": \"Eslam Omar Mohamed\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://127.0.0.1:3000/notes/all",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "3000",
+									"path": [
+										"notes",
+										"all"
+									]
+								}
+							},
+							"status": "Internal Server Error",
+							"code": 500,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "",
+									"type": "text"
+								},
+								{
+									"key": "Content-Length",
+									"value": "328"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"148-w6efw31FmjmjvKtzZDuren8cmuc\""
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 30 Jan 2026 17:50:54 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"error\",\n    \"message\": \"there is no notes for this user\",\n    \"stack\": \"Error: there is no notes for this user\\n    at updateTitle (file:///media/eslam-omar/Eslam/Workspace/Training/Route/Assginment-9/src/modules/notes/notes.service.js:108:11)\\n    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)\"\n}"
+						},
+						{
+							"name": "success",
+							"originalRequest": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"title\": \"Eslam Omar Mohamed\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://127.0.0.1:3000/notes/all",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "3000",
+									"path": [
+										"notes",
+										"all"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": null,
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "65"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"41-kEKEGVk8kfzabhomzx4exrk8Adg\""
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 30 Jan 2026 17:51:47 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"success\",\n    \"message\": \"notes title updated successfully\"\n}"
+						}
+					]
+				},
+				{
+					"name": "deleteNote",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:3000/notes/697cec313ce62a8d7d6d00fc",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3000",
+							"path": [
+								"notes",
+								"697cec313ce62a8d7d6d00fc"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "fail (note don't found)",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"title\": \"new note\",\n    \"content\": \"hello world\"\n}"
+								},
+								"url": {
+									"raw": "http://127.0.0.1:3000/notes/697cec2c3ce62a8d7d6d00f5",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "3000",
+									"path": [
+										"notes",
+										"697cec2c3ce62a8d7d6d00f5"
+									]
+								}
+							},
+							"status": "Internal Server Error",
+							"code": 500,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "",
+									"type": "text"
+								},
+								{
+									"key": "Content-Length",
+									"value": "325"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"145-EiwyS7ueePwwmm4vabGZ6oJcxPc\""
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 30 Jan 2026 18:24:15 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"error\",\n    \"message\": \"this user don't have this note\",\n    \"stack\": \"Error: this user don't have this note\\n    at deleteNote (file:///media/eslam-omar/Eslam/Workspace/Training/Route/Assginment-9/src/modules/notes/notes.service.js:126:20)\\n    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)\"\n}"
+						},
+						{
+							"name": "fail(user don't have note)",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"title\": \"new note\",\n    \"content\": \"hello world\"\n}"
+								},
+								"url": {
+									"raw": "http://127.0.0.1:3000/notes/697cec2c3ce62a8d7d6d00f4",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "3000",
+									"path": [
+										"notes",
+										"697cec2c3ce62a8d7d6d00f4"
+									]
+								}
+							},
+							"status": "Internal Server Error",
+							"code": 500,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "",
+									"type": "text"
+								},
+								{
+									"key": "Content-Length",
+									"value": "325"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"145-EiwyS7ueePwwmm4vabGZ6oJcxPc\""
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 30 Jan 2026 18:24:58 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"error\",\n    \"message\": \"this user don't have this note\",\n    \"stack\": \"Error: this user don't have this note\\n    at deleteNote (file:///media/eslam-omar/Eslam/Workspace/Training/Route/Assginment-9/src/modules/notes/notes.service.js:126:20)\\n    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)\"\n}"
+						},
+						{
+							"name": "success",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://127.0.0.1:3000/notes/697cec2c3ce62a8d7d6d00f4",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "3000",
+									"path": [
+										"notes",
+										"697cec2c3ce62a8d7d6d00f4"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": null,
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "67"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"43-zmAFT4N7I8lq1RNF1Ch07rN6m6s\""
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 30 Jan 2026 18:27:24 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"success\",\n    \"message\": \"note has been deleted successfully\"\n}"
+						}
+					]
+				},
+				{
+					"name": "getUserNotes",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"eslam1234@gmail.com\",\n    \"password\": \"10102001\"\n}"
+						},
+						"url": {
+							"raw": "http://127.0.0.1:3000/notes/paginate-sort?page=0&limit=3",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3000",
+							"path": [
+								"notes",
+								"paginate-sort"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "0"
+								},
+								{
+									"key": "limit",
+									"value": "3"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "success (user don't have notes within this limit)",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"email\": \"eslam1234@gmail.com\",\n    \"password\": \"10102001\"\n}"
+								},
+								"url": {
+									"raw": "http://127.0.0.1:3000/notes/paginate-sort?page=1&limit=3",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "3000",
+									"path": [
+										"notes",
+										"paginate-sort"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "1"
+										},
+										{
+											"key": "limit",
+											"value": "3"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2OTdjODVkMzk4MmIyMmU2YTYyOGY3NzIiLCJpYXQiOjE3Njk3OTc1OTUsImV4cCI6MTc2OTgwMTE5NX0.lcb8lUTwUW03-c7n4nKFXP7J9dmkOYGGL-ELGKXD0KQ"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "",
+									"type": "text"
+								},
+								{
+									"key": "Content-Length",
+									"value": "72"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"48-IOvSnLbngniSw//fH/KYI+oL+3k\""
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 30 Jan 2026 18:53:58 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"success\",\n    \"message\": \"user don't have notes within this limit\"\n}"
+						},
+						{
+							"name": "success (noted retrieved)",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"email\": \"eslam1234@gmail.com\",\n    \"password\": \"10102001\"\n}"
+								},
+								"url": {
+									"raw": "http://127.0.0.1:3000/notes/paginate-sort?page=0&limit=3",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "3000",
+									"path": [
+										"notes",
+										"paginate-sort"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "0"
+										},
+										{
+											"key": "limit",
+											"value": "3"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2OTdjODVkMzk4MmIyMmU2YTYyOGY3NzIiLCJpYXQiOjE3Njk3OTc1OTUsImV4cCI6MTc2OTgwMTE5NX0.lcb8lUTwUW03-c7n4nKFXP7J9dmkOYGGL-ELGKXD0KQ"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "",
+									"type": "text"
+								},
+								{
+									"key": "Content-Length",
+									"value": "715"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"2cb-1QURKa0VhfkzPuOZ7Opgo0jlND4\""
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 30 Jan 2026 18:55:20 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"success\",\n    \"message\": \"user notes retrieved successfully\",\n    \"data\": {\n        \"notes\": [\n            {\n                \"_id\": \"697cec303ce62a8d7d6d00fa\",\n                \"title\": \"Eslam Omar Mohamed\",\n                \"content\": \"hello world\",\n                \"userId\": \"697c85d3982b22e6a628f772\",\n                \"createdAt\": \"2026-01-30T17:36:48.883Z\",\n                \"updatedAt\": \"2026-01-30T17:51:47.371Z\",\n                \"__v\": 0\n            },\n            {\n                \"_id\": \"697cec2f3ce62a8d7d6d00f8\",\n                \"title\": \"Eslam Omar Mohamed\",\n                \"content\": \"hello world\",\n                \"userId\": \"697c85d3982b22e6a628f772\",\n                \"createdAt\": \"2026-01-30T17:36:47.915Z\",\n                \"updatedAt\": \"2026-01-30T17:51:47.371Z\",\n                \"__v\": 0\n            },\n            {\n                \"_id\": \"697cec2e3ce62a8d7d6d00f6\",\n                \"title\": \"Eslam Omar Mohamed\",\n                \"content\": \"hello world\",\n                \"userId\": \"697c85d3982b22e6a628f772\",\n                \"createdAt\": \"2026-01-30T17:36:46.548Z\",\n                \"updatedAt\": \"2026-01-30T17:51:47.371Z\",\n                \"__v\": 0\n            }\n        ]\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "getNote",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"eslam1234@gmail.com\",\n    \"password\": \"10102001\"\n}"
+						},
+						"url": {
+							"raw": "http://127.0.0.1:3000/notes/697cec2e3ce62a8d7d6d00f6",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3000",
+							"path": [
+								"notes",
+								"697cec2e3ce62a8d7d6d00f6"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "fail (no logged in user)",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"email\": \"eslam1234@gmail.com\",\n    \"password\": \"10102001\"\n}"
+								},
+								"url": {
+									"raw": "http://127.0.0.1:3000/notes/697cec2e3ce62a8d7d6d00f6",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "3000",
+									"path": [
+										"notes",
+										"697cec2e3ce62a8d7d6d00f6"
+									]
+								}
+							},
+							"status": "Internal Server Error",
+							"code": 500,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "",
+									"type": "text"
+								},
+								{
+									"key": "Content-Length",
+									"value": "1314"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"522-C18u5jDfGhABv5mX0LmqdZmq6sY\""
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 30 Jan 2026 19:06:27 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"error\",\n    \"message\": \"there is no signed in user\",\n    \"stack\": \"Error: there is no signed in user\\n    at getToken (file:///media/eslam-omar/Eslam/Workspace/Training/Route/Assginment-9/src/common/utils/getToken.utils.js:7:21)\\n    at getNote (file:///media/eslam-omar/Eslam/Workspace/Training/Route/Assginment-9/src/modules/notes/notes.service.js:159:18)\\n    at Layer.handleRequest (/media/eslam-omar/Eslam/Workspace/Training/Route/Assginment-9/node_modules/router/lib/layer.js:152:17)\\n    at next (/media/eslam-omar/Eslam/Workspace/Training/Route/Assginment-9/node_modules/router/lib/route.js:157:13)\\n    at Route.dispatch (/media/eslam-omar/Eslam/Workspace/Training/Route/Assginment-9/node_modules/router/lib/route.js:117:3)\\n    at handle (/media/eslam-omar/Eslam/Workspace/Training/Route/Assginment-9/node_modules/router/index.js:435:11)\\n    at Layer.handleRequest (/media/eslam-omar/Eslam/Workspace/Training/Route/Assginment-9/node_modules/router/lib/layer.js:152:17)\\n    at /media/eslam-omar/Eslam/Workspace/Training/Route/Assginment-9/node_modules/router/index.js:295:15\\n    at param (/media/eslam-omar/Eslam/Workspace/Training/Route/Assginment-9/node_modules/router/index.js:600:14)\\n    at param (/media/eslam-omar/Eslam/Workspace/Training/Route/Assginment-9/node_modules/router/index.js:610:14)\"\n}"
+						},
+						{
+							"name": "fail (user don't have this note)",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"email\": \"eslam1234@gmail.com\",\n    \"password\": \"10102001\"\n}"
+								},
+								"url": {
+									"raw": "http://127.0.0.1:3000/notes/697cec2e3ce62a8d7d6d00f6",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "3000",
+									"path": [
+										"notes",
+										"697cec2e3ce62a8d7d6d00f6"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": null,
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "312"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"138-EKxNzWMQiq2j2ujM22BeDSKJb+8\""
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 30 Jan 2026 19:07:13 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"error\",\n    \"message\": \"user don't have this note\",\n    \"stack\": \"Error: user don't have this note\\n    at getNote (file:///media/eslam-omar/Eslam/Workspace/Training/Route/Assginment-9/src/modules/notes/notes.service.js:167:20)\\n    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)\"\n}"
+						},
+						{
+							"name": "fail (note not found)",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"email\": \"eslam1234@gmail.com\",\n    \"password\": \"10102001\"\n}"
+								},
+								"url": {
+									"raw": "http://127.0.0.1:3000/notes/697cec2e3ce62a8d7d6d00f7",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "3000",
+									"path": [
+										"notes",
+										"697cec2e3ce62a8d7d6d00f7"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "",
+									"type": "text"
+								},
+								{
+									"key": "Content-Length",
+									"value": "312"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"138-EKxNzWMQiq2j2ujM22BeDSKJb+8\""
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 30 Jan 2026 19:07:47 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"error\",\n    \"message\": \"user don't have this note\",\n    \"stack\": \"Error: user don't have this note\\n    at getNote (file:///media/eslam-omar/Eslam/Workspace/Training/Route/Assginment-9/src/modules/notes/notes.service.js:167:20)\\n    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)\"\n}"
+						},
+						{
+							"name": "success",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"email\": \"eslam1234@gmail.com\",\n    \"password\": \"10102001\"\n}"
+								},
+								"url": {
+									"raw": "http://127.0.0.1:3000/notes/697cec2e3ce62a8d7d6d00f6",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "3000",
+									"path": [
+										"notes",
+										"697cec2e3ce62a8d7d6d00f6"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": null,
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "291"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"123-ZtsIC+RdwHsz/RT2lUkJ5TLzVnw\""
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 30 Jan 2026 19:08:11 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"success\",\n    \"message\": \"note data retrieved successfully\",\n    \"data\": {\n        \"note\": {\n            \"_id\": \"697cec2e3ce62a8d7d6d00f6\",\n            \"title\": \"Eslam Omar Mohamed\",\n            \"content\": \"hello world\",\n            \"userId\": \"697c85d3982b22e6a628f772\",\n            \"createdAt\": \"2026-01-30T17:36:46.548Z\",\n            \"updatedAt\": \"2026-01-30T17:51:47.371Z\",\n            \"__v\": 0\n        }\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "getNoteByContent",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"eslam1234@gmail.com\",\n    \"password\": \"10102001\"\n}"
+						},
+						"url": {
+							"raw": "http://127.0.0.1:3000/notes/note-by-content?content=i will be greate",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3000",
+							"path": [
+								"notes",
+								"note-by-content"
+							],
+							"query": [
+								{
+									"key": "content",
+									"value": "i will be greate"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "fail (note not found)",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"email\": \"eslam1234@gmail.com\",\n    \"password\": \"10102001\"\n}"
+								},
+								"url": {
+									"raw": "http://127.0.0.1:3000/notes/note-by-content?content=i will be great",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "3000",
+									"path": [
+										"notes",
+										"note-by-content"
+									],
+									"query": [
+										{
+											"key": "content",
+											"value": "i will be great"
+										}
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "",
+									"type": "text"
+								},
+								{
+									"key": "Content-Length",
+									"value": "299"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"12b-bJVVhjLTg4SvlJ73ffbGX8xN/N0\""
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 30 Jan 2026 19:26:28 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"error\",\n    \"message\": \"note not found\",\n    \"stack\": \"Error: note not found\\n    at getNoteByContent (file:///media/eslam-omar/Eslam/Workspace/Training/Route/Assginment-9/src/modules/notes/notes.service.js:185:20)\\n    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)\"\n}"
+						},
+						{
+							"name": "success",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"email\": \"eslam1234@gmail.com\",\n    \"password\": \"10102001\"\n}"
+								},
+								"url": {
+									"raw": "http://127.0.0.1:3000/notes/note-by-content?content=i will be greate",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "3000",
+									"path": [
+										"notes",
+										"note-by-content"
+									],
+									"query": [
+										{
+											"key": "content",
+											"value": "i will be greate"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "",
+									"type": "text"
+								},
+								{
+									"key": "Content-Length",
+									"value": "283"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"11b-zgdj1BCRhgra7Ir1FWRjbBi4qYs\""
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 30 Jan 2026 19:27:20 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"success\",\n    \"message\": \"noteData retrieved successfully\",\n    \"data\": {\n        \"note\": {\n            \"_id\": \"697d05479098bc3e152a096a\",\n            \"title\": \"future\",\n            \"content\": \"i will be greate\",\n            \"userId\": \"697c85d3982b22e6a628f772\",\n            \"createdAt\": \"2026-01-30T19:23:51.527Z\",\n            \"updatedAt\": \"2026-01-30T19:23:51.527Z\",\n            \"__v\": 0\n        }\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "get note and user data",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://127.0.0.1:3000/notes/note-with-user",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3000",
+							"path": [
+								"notes",
+								"note-with-user"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "fail (user has no notes)",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "http://127.0.0.1:3000/notes/note-with-user",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "3000",
+									"path": [
+										"notes",
+										"note-with-user"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "",
+									"type": "text"
+								},
+								{
+									"key": "Content-Length",
+									"value": "303"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"12f-7xEUGwGkfNo0AQXPTx0WB/MHnNE\""
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 30 Jan 2026 19:54:17 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"error\",\n    \"message\": \"notes not found\",\n    \"stack\": \"Error: notes not found\\n    at getNoteAndUserData (file:///media/eslam-omar/Eslam/Workspace/Training/Route/Assginment-9/src/modules/notes/notes.service.js:203:28)\\n    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)\"\n}"
+						},
+						{
+							"name": "success",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "http://127.0.0.1:3000/notes/note-with-user",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "3000",
+									"path": [
+										"notes",
+										"note-with-user"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": null,
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "937"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"3a9-HAhYEjiBaI9tQyjcFBtdxa7RO2U\""
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 30 Jan 2026 19:55:43 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"success\",\n    \"message\": \"notes data retrived successfully\",\n    \"data\": {\n        \"notes\": [\n            {\n                \"_id\": \"697cec2e3ce62a8d7d6d00f6\",\n                \"title\": \"Eslam Omar Mohamed\",\n                \"content\": \"hello world\",\n                \"userId\": {\n                    \"email\": \"eslam1234@gmail.com\"\n                },\n                \"createdAt\": \"2026-01-30T17:36:46.548Z\",\n                \"updatedAt\": \"2026-01-30T17:51:47.371Z\",\n                \"__v\": 0\n            },\n            {\n                \"_id\": \"697cec2f3ce62a8d7d6d00f8\",\n                \"title\": \"Eslam Omar Mohamed\",\n                \"content\": \"hello world\",\n                \"userId\": {\n                    \"email\": \"eslam1234@gmail.com\"\n                },\n                \"createdAt\": \"2026-01-30T17:36:47.915Z\",\n                \"updatedAt\": \"2026-01-30T17:51:47.371Z\",\n                \"__v\": 0\n            },\n            {\n                \"_id\": \"697cec303ce62a8d7d6d00fa\",\n                \"title\": \"Eslam Omar Mohamed\",\n                \"content\": \"hello world\",\n                \"userId\": {\n                    \"email\": \"eslam1234@gmail.com\"\n                },\n                \"createdAt\": \"2026-01-30T17:36:48.883Z\",\n                \"updatedAt\": \"2026-01-30T17:51:47.371Z\",\n                \"__v\": 0\n            },\n            {\n                \"_id\": \"697d05479098bc3e152a096a\",\n                \"title\": \"future\",\n                \"content\": \"i will be greate\",\n                \"userId\": {\n                    \"email\": \"eslam1234@gmail.com\"\n                },\n                \"createdAt\": \"2026-01-30T19:23:51.527Z\",\n                \"updatedAt\": \"2026-01-30T19:23:51.527Z\",\n                \"__v\": 0\n            }\n        ]\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "aggregate",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://127.0.0.1:3000/notes/aggregate?title=Eslam Omar Moha",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3000",
+							"path": [
+								"notes",
+								"aggregate"
+							],
+							"query": [
+								{
+									"key": "title",
+									"value": "Eslam Omar Moha"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "fail (no note found)",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "http://127.0.0.1:3000/notes/aggregate?title=Eslam Omar Moha",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "3000",
+									"path": [
+										"notes",
+										"aggregate"
+									],
+									"query": [
+										{
+											"key": "title",
+											"value": "Eslam Omar Moha"
+										}
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": null,
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "294"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"126-1R2sIEpum4vWFo11Zs1nNhLBa9w\""
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 30 Jan 2026 20:12:13 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"error\",\n    \"message\": \"notes not found\",\n    \"stack\": \"Error: notes not found\\n    at aggregate (file:///media/eslam-omar/Eslam/Workspace/Training/Route/Assginment-9/src/modules/notes/notes.service.js:225:28)\\n    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)\"\n}"
+						},
+						{
+							"name": "success",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "http://127.0.0.1:3000/notes/aggregate?title=Eslam Omar Mohamed",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "3000",
+									"path": [
+										"notes",
+										"aggregate"
+									],
+									"query": [
+										{
+											"key": "title",
+											"value": "Eslam Omar Mohamed"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"description": "",
+									"type": "text"
+								},
+								{
+									"key": "Content-Length",
+									"value": "1020"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"3fc-XrMDruflcYvz2/EXk1We5ccfjc0\""
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 30 Jan 2026 20:11:43 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"success\",\n    \"message\": \"notes data retrived successfully\",\n    \"data\": {\n        \"notes\": [\n            {\n                \"_id\": \"697cec2e3ce62a8d7d6d00f6\",\n                \"title\": \"Eslam Omar Mohamed\",\n                \"content\": \"hello world\",\n                \"userId\": \"697c85d3982b22e6a628f772\",\n                \"createdAt\": \"2026-01-30T17:36:46.548Z\",\n                \"updatedAt\": \"2026-01-30T17:51:47.371Z\",\n                \"__v\": 0,\n                \"userData\": [\n                    {\n                        \"name\": \"Mohamed Ramadan\",\n                        \"email\": \"eslam1234@gmail.com\"\n                    }\n                ],\n                \"id\": \"697cec2e3ce62a8d7d6d00f6\"\n            },\n            {\n                \"_id\": \"697cec2f3ce62a8d7d6d00f8\",\n                \"title\": \"Eslam Omar Mohamed\",\n                \"content\": \"hello world\",\n                \"userId\": \"697c85d3982b22e6a628f772\",\n                \"createdAt\": \"2026-01-30T17:36:47.915Z\",\n                \"updatedAt\": \"2026-01-30T17:51:47.371Z\",\n                \"__v\": 0,\n                \"userData\": [\n                    {\n                        \"name\": \"Mohamed Ramadan\",\n                        \"email\": \"eslam1234@gmail.com\"\n                    }\n                ],\n                \"id\": \"697cec2f3ce62a8d7d6d00f8\"\n            },\n            {\n                \"_id\": \"697cec303ce62a8d7d6d00fa\",\n                \"title\": \"Eslam Omar Mohamed\",\n                \"content\": \"hello world\",\n                \"userId\": \"697c85d3982b22e6a628f772\",\n                \"createdAt\": \"2026-01-30T17:36:48.883Z\",\n                \"updatedAt\": \"2026-01-30T17:51:47.371Z\",\n                \"__v\": 0,\n                \"userData\": [\n                    {\n                        \"name\": \"Mohamed Ramadan\",\n                        \"email\": \"eslam1234@gmail.com\"\n                    }\n                ],\n                \"id\": \"697cec303ce62a8d7d6d00fa\"\n            }\n        ]\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "deleteNotes",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://127.0.0.1:3000/notes",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3000",
+							"path": [
+								"notes"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "fail (user has no notes)",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "http://127.0.0.1:3000/notes",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "3000",
+									"path": [
+										"notes"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "",
+									"type": "text"
+								},
+								{
+									"key": "Content-Length",
+									"value": "326"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"146-su/l8m2zo0zx96jkRvL+SPQiXSk\""
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 30 Jan 2026 20:18:40 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"error\",\n    \"message\": \"there is no notes to delete it\",\n    \"stack\": \"Error: there is no notes to delete it\\n    at deleteNotes (file:///media/eslam-omar/Eslam/Workspace/Training/Route/Assginment-9/src/modules/notes/notes.service.js:241:11)\\n    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)\"\n}"
+						},
+						{
+							"name": "fail (no user signed in)",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "http://127.0.0.1:3000/notes",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "3000",
+									"path": [
+										"notes"
+									]
+								}
+							},
+							"status": "Unauthorized",
+							"code": 401,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "",
+									"type": "text"
+								},
+								{
+									"key": "Content-Length",
+									"value": "1324"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"52c-JVNmeP05M0deq1sgWv9/jQi28c0\""
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 30 Jan 2026 20:19:26 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"error\",\n    \"message\": \"there is no signed in user\",\n    \"stack\": \"Error: there is no signed in user\\n    at getToken (file:///media/eslam-omar/Eslam/Workspace/Training/Route/Assginment-9/src/common/utils/getToken.utils.js:7:21)\\n    at deleteNotes (file:///media/eslam-omar/Eslam/Workspace/Training/Route/Assginment-9/src/modules/notes/notes.service.js:235:18)\\n    at Layer.handleRequest (/media/eslam-omar/Eslam/Workspace/Training/Route/Assginment-9/node_modules/router/lib/layer.js:152:17)\\n    at next (/media/eslam-omar/Eslam/Workspace/Training/Route/Assginment-9/node_modules/router/lib/route.js:157:13)\\n    at Route.dispatch (/media/eslam-omar/Eslam/Workspace/Training/Route/Assginment-9/node_modules/router/lib/route.js:117:3)\\n    at handle (/media/eslam-omar/Eslam/Workspace/Training/Route/Assginment-9/node_modules/router/index.js:435:11)\\n    at Layer.handleRequest (/media/eslam-omar/Eslam/Workspace/Training/Route/Assginment-9/node_modules/router/lib/layer.js:152:17)\\n    at /media/eslam-omar/Eslam/Workspace/Training/Route/Assginment-9/node_modules/router/index.js:295:15\\n    at processParams (/media/eslam-omar/Eslam/Workspace/Training/Route/Assginment-9/node_modules/router/index.js:582:12)\\n    at next (/media/eslam-omar/Eslam/Workspace/Training/Route/Assginment-9/node_modules/router/index.js:291:5)\"\n}"
+						},
+						{
+							"name": "success",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "http://127.0.0.1:3000/notes",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "3000",
+									"path": [
+										"notes"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "",
+									"type": "text"
+								},
+								{
+									"key": "Content-Length",
+									"value": "95"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"5f-i1XRhQ4ZrAlIx8H593WQcC6vNCY\""
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 30 Jan 2026 20:21:26 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"success\",\n    \"message\": \"notes have been deleted successfully\",\n    \"data\": {\n        \"notesDeleted\": 2\n    }\n}"
+						}
+					]
+				}
+			]
+		}
+	]
+}
